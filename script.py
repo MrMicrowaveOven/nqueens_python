@@ -1,16 +1,26 @@
 from board import Board
 
-b = Board(4)
+import random
 
-queens = [
-    [0,0],
-    [1,2],
-    [2,1],
-    [3,3]
-]
+def find_solution(size):
+    random_board = make_random_board(size)
+    b = Board(size, random_board)
+    while not b.is_solution():
+        random_board = make_random_board(size)
+        b = Board(size, random_board)
+    print 'solution found!'
+    b.show_board()
 
-for queen in queens:
-    b.place_queen(queen)
+def make_random_board(size):
+    queens = []
+    row_indices = range(size)
+    scrambled = range(size)
+    random.shuffle(scrambled)
+    for i in row_indices:
+        queens.append([row_indices[i],scrambled[i]])
+    return queens
 
-b.show_board()
-print b.is_solution()
+from datetime import datetime
+print datetime.now()
+find_solution(10)
+print datetime.now()
