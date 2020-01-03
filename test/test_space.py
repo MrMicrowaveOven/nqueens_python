@@ -1,4 +1,8 @@
+import sys
+sys.path.append("../lib")
+
 import unittest
+
 from space import Space
 
 class SpaceTest(unittest.TestCase):

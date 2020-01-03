@@ -1,4 +1,5 @@
 from space import Space
+
 class Board:
     def __init__(self, size, prefill = []):
         self.size = size

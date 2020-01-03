@@ -1,4 +1,8 @@
+import sys
+sys.path.append("../lib")
+
 import unittest
+
 from board import Board
 from space import Space
 

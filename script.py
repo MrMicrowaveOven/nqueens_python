@@ -1,3 +1,6 @@
+import sys
+sys.path.append("lib")
+
 from board import Board
 
 import random
@@ -8,7 +11,6 @@ def find_solution(size):
     while not b.is_solution():
         random_board = make_random_board(size)
         b = Board(size, random_board)
-    print 'solution found!'
     b.show_board()
 
 def make_random_board(size):
