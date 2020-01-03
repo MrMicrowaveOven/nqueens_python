@@ -29,6 +29,18 @@ class Board:
         space = spaces[spot[0]][spot[1]]
         space.fill()
 
+    def get_queens(self):
+        size = self.size
+        queens = []
+        for i in range(size):
+            queens.append([i,self.queen_in_row(i)])
+        return queens
+
+    # def is_solution(self):
+    #     queens = get_queens()
+        # for queen in queens:
+
+
     def queen_in_row(self, row_index):
         spaces = self.spaces
         row = spaces[row_index]
@@ -38,6 +50,9 @@ class Board:
             if space.is_filled():
                 return space_index
         return None
+
+    def get_captures(self ,space):
+        return self.horizontal_captures(space) + self.vertical_captures(space) + self.diagonal_captures(space)
 
     def horizontal_captures(self, space):
         size = self.size

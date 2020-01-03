@@ -54,5 +54,23 @@ class BoardTest(unittest.TestCase):
 
         self.assertEquals(calculated_diagonal_captures, diagonal_captures)
 
+    def test_get_captures(self):
+        b = Board(4)
+        queen_space = [1,1]
+        captures = [
+            [1,0],[1,2],[1,3],
+            [0,1],[2,1],[3,1],
+            [0,0],[0,2],[2,0],[2,2],[3,3]
+        ]
+
+        self.assertEquals(captures, b.get_captures(queen_space))
+
+    def test_get_queens(self):
+        b = Board(4)
+        queen_spaces = [[0,0],[1,2],[2,0],[3,3]]
+        for queen_space in queen_spaces:
+            b.place_queen(queen_space)
+        self.assertEquals(b.get_queens(), queen_spaces)
+
 if __name__ == "__main__":
     unittest.main()
