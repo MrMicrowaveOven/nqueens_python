@@ -2,8 +2,15 @@ from board import Board
 
 b = Board(4)
 
-b.show_board()
+queens = [
+    [0,0],
+    [1,2],
+    [2,1],
+    [3,3]
+]
 
-b.place_queen([1,3])
-print '-------------------------'
+for queen in queens:
+    b.place_queen(queen)
+
 b.show_board()
+print b.is_solution()

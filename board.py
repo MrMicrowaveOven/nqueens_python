@@ -36,10 +36,17 @@ class Board:
             queens.append([i,self.queen_in_row(i)])
         return queens
 
-    # def is_solution(self):
-    #     queens = get_queens()
-        # for queen in queens:
-
+    def is_solution(self):
+        queens = self.get_queens()
+        for queen in queens:
+            captures = self.get_captures(queen)
+            other_queens = queens
+            other_queens.remove(queen)
+            # Intersection of captures and other_queens
+            collisions = [spot for spot in other_queens if spot in captures]
+            if len(collisions) > 0:
+                return False
+        return True
 
     def queen_in_row(self, row_index):
         spaces = self.spaces
