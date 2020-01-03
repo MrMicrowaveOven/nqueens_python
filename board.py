@@ -1,6 +1,6 @@
 from space import Space
 class Board:
-    def __init__(self, size):
+    def __init__(self, size, prefill = []):
         self.size = size
         spaces = [0] * size
         for i in range(size):
@@ -9,6 +9,8 @@ class Board:
                 row.append(Space())
             spaces[i] = row
         self.spaces = spaces
+        for spot in prefill:
+            self.place_queen(spot)
 
     def show_board(self):
         spaces = self.spaces

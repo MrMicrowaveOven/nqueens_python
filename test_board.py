@@ -3,10 +3,12 @@ from board import Board
 from space import Space
 
 class BoardTest(unittest.TestCase):
-    # def test_board_init(self):
-    #     b = Board(2)
-    #     empty_board = [[Space(),Space()],[Space(),Space()]]
-    #     self.assertEquals(b.spaces, empty_board), "board isn't empty"
+    def test_board_init(self):
+        b = Board(4, [[1,2],[3,0]])
+        assert b.queen_in_row(0) == None
+        assert b.queen_in_row(1) == 2
+        assert b.queen_in_row(2) == None
+        assert b.queen_in_row(3) == 0
 
     def test_place_queen(self):
         b = Board(2)
